@@ -53,7 +53,7 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
         return {
             enter: function(element, doneFn) {
                 return $animateCss(element, {
-                    from: { left: '80%', top: 0, opacity: 0 },
+                    from: { left: '100%', top: 0, opacity: 0 },
                     to: { left: 0, top: 0, opacity: 1 },
                     duration: .3
                 });
@@ -61,7 +61,7 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
             leave: function(element, doneFn) {
                 return $animateCss(element, {
                     from: { left: 0, top: 0, opacity: 1 },
-                    to: { left: '-80%', top: 0, opacity: 0 },
+                    to: { left: '-100%', top: 0, opacity: 0 },
                     duration: .3
                 });
             }
@@ -71,7 +71,7 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
         return {
             enter: function(element, doneFn) {
                 return $animateCss(element, {
-                    from: { left: '80%', top: 0, opacity: 0 },
+                    from: { left: '100%', top: 0, opacity: 0 },
                     to: { left: 0, top: 0, opacity: 1 },
                     duration: .3
                 });
@@ -79,7 +79,7 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
             leave: function(element, doneFn) {
                 return $animateCss(element, {
                     from: { left: 0, top: 0, opacity: 1 },
-                    to: { left: '-80%', top: 0, opacity: 0 },
+                    to: { left: '-100%', top: 0, opacity: 0 },
                     duration: .3
                 });
             }
