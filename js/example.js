@@ -5,9 +5,33 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
                 controller: 'home',
                 templateUrl: ''
             })
+            .when('/button',{
+            	controller: 'button',
+                templateUrl: 'button.html'
+            })
+            .when('/cell', {
+                controller: 'cell',
+                templateUrl: 'cell.html'
+            })
             .when('/toast', {
                 controller: 'toast',
                 templateUrl: 'toast.html'
+            })
+            .when('/msg', {
+                controller: 'msg',
+                templateUrl: 'msg.html'
+            })
+            .when('/article', {
+                controller: 'article',
+                templateUrl: 'article.html'
+            })
+            .when('/icons', {
+                controller: 'icons',
+                templateUrl: 'icons.html'
+            })
+            .when('/panel', {
+                controller: 'panel',
+                templateUrl: 'panel.html'
             })
             .otherwise({
                 redirectTo: '/'
@@ -23,44 +47,8 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
             $scope.viewShow = true;
         }
     })
-    .controller('toast', ['$scope', '$interval', function($scope, $interval) {
-        $scope.toastHide = 0;
-        $scope.loadingToastHide = 0;
-
-        $scope.showToast = function() {
-            $scope.toastHide = 1;
-
-            $interval(function() {
-                $scope.toastHide = 0;
-            }, 3000, 1);
-        }
-
-        $scope.showLoadingToast = function() {
-            $scope.loadingToastHide = 1;
-
-            $interval(function() {
-                $scope.loadingToastHide = 0;
-            }, 3000, 1);
-        }
-    }])
-    .animation('.aweui-show', ['$animateCss', function($animateCss) {
-        return {
-            enter: function(element, doneFn) {
-                return $animateCss(element, {
-                    from: { opacity: 0 },
-                    to: { opacity: 1 },
-                    duration: .3
-                });
-            },
-            leave: function(element, doneFn) {
-                return $animateCss(element, {
-                    from: { opacity: 1 },
-                    to: { opacity: 0 },
-                    duration: .3
-                });
-            }
-        }
-    }])
+    .controller('toast', ['$scope', '$interval', toast])
+    .animation('.aweui-show', ['$animateCss', toastAnimate])
     .animation('.home', ['$animateCss', function($animateCss) {
         return {
             enter: function(element, doneFn) {
