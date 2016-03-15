@@ -21,12 +21,14 @@
 + ActionSheet
 + Icons
 + Panel
++ Tab
++ SearchBar
 + 页面显示样式美化
 
 **正在进行**
 
-+ Tab
++ 注释
 
 **待完成**
 
-+ SearchBar
++ 使用文档

@@ -5,8 +5,8 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
                 controller: 'homeCtrl',
                 templateUrl: ''
             })
-            .when('/button',{
-            	controller: 'buttonCtrl',
+            .when('/button', {
+                controller: 'buttonCtrl',
                 templateUrl: 'button.html'
             })
             .when('/cell', {
@@ -45,6 +45,22 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
                 controller: 'panelCtrl',
                 templateUrl: 'panel.html'
             })
+            .when('/tab', {
+                controller: 'tabCtrl',
+                templateUrl: 'tab.html'
+            })
+            .when('/navbar', {
+                controller: 'navbarCtrl',
+                templateUrl: 'navbar.html'
+            })
+            .when('/tabbar', {
+                controller: 'tabbarCtrl',
+                templateUrl: 'tabbar.html'
+            })
+            .when('/searchbar', {
+                controller: 'searchbarCtrl',
+                templateUrl: 'searchbar.html'
+            })
             .otherwise({
                 redirectTo: '/'
             })
@@ -63,6 +79,7 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
     .controller('dialogCtrl', ['$scope', dialogCtrl])
     .controller('progressCtrl', ['$scope', progressCtrl])
     .controller('actionsheetCtrl', ['$scope', actionsheetCtrl])
+    .controller('searchbarCtrl', ['$scope', searchbarCtrl])
     .animation('.aweui-show', ['$animateCss', toastAnimate])
     .animation('.home', ['$animateCss', function($animateCss) {
         return {
