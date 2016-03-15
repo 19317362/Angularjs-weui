@@ -1,5 +1,5 @@
 //toast控制器
-function toast($scope, $interval) {
+function toastCtrl($scope, $interval) {
     $scope.toastHide = 0;
     $scope.loadingToastHide = 0;
 

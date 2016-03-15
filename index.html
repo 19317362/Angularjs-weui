@@ -15,12 +15,42 @@
     left: 0;
     top: 0;
 }
+
+.weui_progress_inner_bar {
+    transition: all .3s;
+}
+
+.hd {
+    padding: 2em 0
+}
+
+.page_desc {
+    text-align: center;
+    color: #888;
+    font-size: 14px
+}
+
+.bd.spacing {
+    padding: 0 15px
+}
+
+.page_title {
+    text-align: center;
+    font-size: 34px;
+    color: #3cc51f;
+    font-weight: 400;
+    margin: 0 15%
+}
 </style>
 
-<body ng-controller="home" ng-init="homeShow=true">
+<body ng-controller="homeCtrl">
     <div class="home" ng-if="homeShow">
+        <div class="hd">
+            <h1 class="page_title">WeUI</h1>
+            <p class="page_desc">为微信Web服务量身设计</p>
+        </div>
         <div class="weui_grids">
-            <a href="#/button" class="weui_grid js_grid" data-id="button" ng-click="showBlock('button')">
+            <a href="#/button" class="weui_grid js_grid" data-id="button" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_button.png" alt="">
                 </div>
@@ -28,7 +58,7 @@
                     Button
                 </p>
             </a>
-            <a href="#/cell" class="weui_grid js_grid" data-id="cell" ng-click="showBlock('cell')">
+            <a href="#/cell" class="weui_grid js_grid" data-id="cell" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_cell.png" alt="">
                 </div>
@@ -36,7 +66,7 @@
                     Cell
                 </p>
             </a>
-            <a href="#/toast" class="weui_grid js_grid" data-id="toast" ng-click="showBlock('toast')">
+            <a href="#/toast" class="weui_grid js_grid" data-id="toast" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_toast.png" alt="">
                 </div>
@@ -44,7 +74,7 @@
                     Toast
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" data-id="dialog" ng-click="showBlock('dialog')">
+            <a href="#/dialog" class="weui_grid js_grid" data-id="dialog" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_dialog.png" alt="">
                 </div>
@@ -52,7 +82,7 @@
                     Dialog
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" data-id="progress" ng-click="showBlock('progress')">
+            <a href="#/progress" class="weui_grid js_grid" data-id="progress" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_progress.png" alt="">
                 </div>
@@ -60,7 +90,7 @@
                     Progress
                 </p>
             </a>
-            <a href="#/msg" class="weui_grid js_grid" data-id="msg" ng-click="showBlock('msg')">
+            <a href="#/msg" class="weui_grid js_grid" data-id="msg" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_msg.png" alt="">
                 </div>
@@ -68,7 +98,7 @@
                     Msg
                 </p>
             </a>
-            <a href="#/article" class="weui_grid js_grid" data-id="article" ng-click="showBlock('article')">
+            <a href="#/article" class="weui_grid js_grid" data-id="article" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_article.png" alt="">
                 </div>
@@ -76,7 +106,7 @@
                     Article
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" data-id="actionsheet" ng-click="showBlock('actionsheet')">
+            <a href="#/actionsheet" class="weui_grid js_grid" data-id="actionsheet" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_actionSheet.png" alt="">
                 </div>
@@ -84,7 +114,7 @@
                     ActionSheet
                 </p>
             </a>
-            <a href="#/icons" class="weui_grid js_grid" data-id="icons" ng-click="showBlock('icons')">
+            <a href="#/icons" class="weui_grid js_grid" data-id="icons" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_icons.png" alt="">
                 </div>
@@ -92,7 +122,7 @@
                     Icons
                 </p>
             </a>
-            <a href="#/panel" class="weui_grid js_grid" data-id="panel" ng-click="showBlock('panel')">
+            <a href="#/panel" class="weui_grid js_grid" data-id="panel" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_panel.png" alt="">
                 </div>
@@ -100,7 +130,7 @@
                     Panel
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid" data-id="tab" ng-click="showBlock('tab')">
+            <a href="javascript:;" class="weui_grid js_grid" data-id="tab" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_tab.png" alt="">
                 </div>
@@ -108,7 +138,7 @@
                     Tab
                 </p>
             </a>
-            <a href="#/searchbar" class="weui_grid js_grid" data-id="searchbar" ng-click="showBlock('searchbar')">
+            <a href="#/searchbar" class="weui_grid js_grid" data-id="searchbar" ng-click="showBlock()">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_search_bar.png" alt="">
                 </div>
@@ -123,6 +153,9 @@
     <script type="text/javascript" src="./js/angular-animate.min.js"></script>
     <script type="text/javascript" src="./js/angular-route.min.js"></script>
     <script type="text/javascript" src="./js/toast.js"></script>
+    <script type="text/javascript" src="./js/dialog.js"></script>
+    <script type="text/javascript" src="./js/progress.js"></script>
+    <script type="text/javascript" src="./js/actionsheet.js"></script>
     <script type="text/javascript" src="./js/example.js"></script>
 </body>
 

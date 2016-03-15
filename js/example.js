@@ -2,35 +2,47 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                controller: 'home',
+                controller: 'homeCtrl',
                 templateUrl: ''
             })
             .when('/button',{
-            	controller: 'button',
+            	controller: 'buttonCtrl',
                 templateUrl: 'button.html'
             })
             .when('/cell', {
-                controller: 'cell',
+                controller: 'cellCtrl',
                 templateUrl: 'cell.html'
             })
             .when('/toast', {
-                controller: 'toast',
+                controller: 'toastCtrl',
                 templateUrl: 'toast.html'
             })
+            .when('/dialog', {
+                controller: 'dialogCtrl',
+                templateUrl: 'dialog.html'
+            })
+            .when('/progress', {
+                controller: 'progressCtrl',
+                templateUrl: 'progress.html'
+            })
             .when('/msg', {
-                controller: 'msg',
+                controller: 'msgCtrl',
                 templateUrl: 'msg.html'
             })
             .when('/article', {
-                controller: 'article',
+                controller: 'articleCtrl',
                 templateUrl: 'article.html'
             })
+            .when('/actionsheet', {
+                controller: 'actionsheetCtrl',
+                templateUrl: 'actionsheet.html'
+            })
             .when('/icons', {
-                controller: 'icons',
+                controller: 'iconsCtrl',
                 templateUrl: 'icons.html'
             })
             .when('/panel', {
-                controller: 'panel',
+                controller: 'panelCtrl',
                 templateUrl: 'panel.html'
             })
             .otherwise({
@@ -38,7 +50,7 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
             })
 
     })
-    .controller('home', function($scope) {
+    .controller('homeCtrl', function($scope) {
         $scope.homeShow = true;
         $scope.viewShow = false;
 
@@ -47,7 +59,10 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
             $scope.viewShow = true;
         }
     })
-    .controller('toast', ['$scope', '$interval', toast])
+    .controller('toastCtrl', ['$scope', '$interval', toastCtrl])
+    .controller('dialogCtrl', ['$scope', dialogCtrl])
+    .controller('progressCtrl', ['$scope', progressCtrl])
+    .controller('actionsheetCtrl', ['$scope', actionsheetCtrl])
     .animation('.aweui-show', ['$animateCss', toastAnimate])
     .animation('.home', ['$animateCss', function($animateCss) {
         return {

@@ -14,18 +14,19 @@
 + Button
 + Cell
 + Toast
++ Dialog
++ Progress
 + Msg
 + Article
++ ActionSheet
 + Icons
 + Panel
++ 页面显示样式美化
 
 **正在进行**
 
-+ Dialog
++ Tab
 
 **待完成**
 
-+ Progress
-+ ActionSheet
-+ Tab
 + SearchBar
