@@ -15,6 +15,15 @@
     height: 100%;
     left: 0;
     top: 0;
+    z-index: 1;
+}
+
+.view {
+    left: 100%;
+    background: #fff;
+    z-index: 2;
+    height: 0;
+    width: 0;
 }
 
 .weui_progress_inner_bar {
@@ -25,7 +34,7 @@
     padding: 2em 0
 }
 
-.page{
+.page {
     height: 100%;
 }
 
@@ -49,7 +58,7 @@
 </style>
 
 <body ng-controller="homeCtrl">
-    <div class="home" ng-if="homeShow">
+    <div ng-class="['home']">
         <div class="hd">
             <h1 class="page_title">WeUI</h1>
             <p class="page_desc">为微信Web服务量身设计</p>
@@ -153,9 +162,8 @@
             </a>
         </div>
     </div>
-    <div class="view" ng-view ng-if="viewShow"></div>
+    <div ng-class="['view']" ng-view ng-style="viewStyle"></div>
     <script type="text/javascript" src="./js/angular.min.js"></script>
-    <script type="text/javascript" src="./js/angular-animate.min.js"></script>
     <script type="text/javascript" src="./js/angular-route.min.js"></script>
     <script type="text/javascript" src="./js/toast.js"></script>
     <script type="text/javascript" src="./js/dialog.js"></script>

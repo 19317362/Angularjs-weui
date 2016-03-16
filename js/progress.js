@@ -1,5 +1,5 @@
 function progressCtrl($scope) {
-    $scope.progress1 = { width: '0%' };
+    $scope.progress1 = { width: '0%' }; //进度条的宽度
     $scope.progress2 = { width: '30%' };
     $scope.progress3 = { width: '80%' };
 

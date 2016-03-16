@@ -1,9 +1,10 @@
-angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
+angular.module('weuiapp', ['ngRoute'])
     .config(function($routeProvider) {
+        //路由配置
         $routeProvider
             .when('/', {
                 controller: 'homeCtrl',
-                templateUrl: ''
+                templateUrl: 'home.html'
             })
             .when('/button', {
                 controller: 'buttonCtrl',
@@ -63,57 +64,34 @@ angular.module('weuiapp', ['ngAnimate', 'ngRoute'])
             })
             .otherwise({
                 redirectTo: '/'
-            })
+            });
+
 
     })
     .controller('homeCtrl', function($scope) {
-        $scope.homeShow = true;
-        $scope.viewShow = false;
+        //初始化ngView的样式为不可见
+        $scope.viewStyle = {
+            left: '200%',
+            height: 0,
+            width: 0
+        };
 
         $scope.showBlock = function() {
-            $scope.homeShow = false;
-            $scope.viewShow = true;
+            //设置ngView的样式可见
+            $scope.viewStyle = {
+                left: 0,
+                height: '100%',
+                width: '100%'
+            };
         }
     })
+    //增加toast控件控制器
     .controller('toastCtrl', ['$scope', '$interval', toastCtrl])
+    //增加dialog控件控制器
     .controller('dialogCtrl', ['$scope', dialogCtrl])
+    //增加progress控件控制器
     .controller('progressCtrl', ['$scope', progressCtrl])
+    //增加actionsheet控件控制器
     .controller('actionsheetCtrl', ['$scope', actionsheetCtrl])
-    .controller('searchbarCtrl', ['$scope', searchbarCtrl])
-    .animation('.aweui-show', ['$animateCss', toastAnimate])
-    .animation('.home', ['$animateCss', function($animateCss) {
-        return {
-            enter: function(element, doneFn) {
-                return $animateCss(element, {
-                    from: { left: '100%', top: 0, opacity: 0 },
-                    to: { left: 0, top: 0, opacity: 1 },
-                    duration: .3
-                });
-            },
-            leave: function(element, doneFn) {
-                return $animateCss(element, {
-                    from: { left: 0, top: 0, opacity: 1 },
-                    to: { left: '-100%', top: 0, opacity: 0 },
-                    duration: .3
-                });
-            }
-        }
-    }])
-    .animation('.view', ['$animateCss', function($animateCss) {
-        return {
-            enter: function(element, doneFn) {
-                return $animateCss(element, {
-                    from: { left: '100%', top: 0, opacity: 0 },
-                    to: { left: 0, top: 0, opacity: 1 },
-                    duration: .3
-                });
-            },
-            leave: function(element, doneFn) {
-                return $animateCss(element, {
-                    from: { left: 0, top: 0, opacity: 1 },
-                    to: { left: '-100%', top: 0, opacity: 0 },
-                    duration: .3
-                });
-            }
-        }
-    }])
+    //增加searchbar控件控制器
+    .controller('searchbarCtrl', ['$scope', searchbarCtrl]);
